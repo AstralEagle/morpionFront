@@ -1,0 +1,11 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(226, 226, 226);
+    align-items: center;
+    padding: 0px 15px 0px 15px;
+}
+.headerIcon{
+    font-size: 20px;
+    margin: 0px 5px 0px 5px;
+}

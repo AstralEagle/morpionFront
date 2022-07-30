@@ -1,0 +1,28 @@
+.userScore{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(211, 207, 207);
+    margin: 20px 50px 20px 50px;
+    padding: 0px  5px 0px 10px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px black;
+}
+.nameScore{
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pointScore{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+}
+.pointScore p{
+    margin: 0px;
+}
+.userScore:hover{
+    box-shadow: 2px 2px 5px grey;
+}

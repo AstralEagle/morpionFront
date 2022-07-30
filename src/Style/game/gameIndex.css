@@ -1,0 +1,86 @@
+.widgetGame{
+    width: 175px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+
+
+    overflow: hidden;
+    border-radius: 15px;
+    border: 2px solid black;
+    box-shadow: 3px 3px 5px black;
+
+    margin: 5px 10px 5px 10px;
+}
+.widgetGame th{
+    max-height:  60px;
+    max-width: 60px;
+    height: 60px;
+    width: 60px;
+    font-size: 45px;
+    background-color: white;
+}
+.widgetGame h3{
+    max-width: 90%;
+    height:  68px;
+    vertical-align: middle;
+
+    text-align: center;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-size: 30px;
+    margin: 5px 0px 5px 0px;
+    padding: 0px 3px 0px 3px;
+}
+.widgetGame h4{
+    margin: 3px 0px 3px 0px;
+    font-size: 20px;
+    text-align: center;
+}
+.widgetGame table{
+    background-color: black;
+
+    margin: 0px -2px 0px -2px
+}
+.widgetGame .joiningGame{
+    background-color: rgb(233, 227, 227);
+
+    margin: 10px 0px 10px 0px;
+    padding: 5px 10px 5px 10px;
+
+    box-shadow: 1px 1px 2px black;
+    border-radius: 5px;
+}
+
+
+
+.widgetGame:hover{
+    box-shadow: 3px 3px 5px grey;
+}
+
+.widgetGame .joiningGame:hover{
+    background-color: rgb(238, 237, 237);
+}
+
+.widgetGame .joiningGame:active{
+    box-shadow: 0px 0px 0px black;
+}
+
+@media screen and (max-width: 425px){
+    
+    .widgetGame{
+        width: 130px;
+    }
+    .widgetGame th{
+        height: 40px;
+        width: 40px;
+    }
+    .widgetGame h3{
+        font-size: 20px;
+        height: 46px;
+    }
+}

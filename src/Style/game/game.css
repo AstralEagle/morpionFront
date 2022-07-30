@@ -1,0 +1,43 @@
+.mainGame{
+    position: relative;
+    padding-top: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.infoWinner{
+    position: absolute; 
+    top: 30px;
+    background-color: rgba(201, 198, 198, 0.712);
+    border-radius: 15px;
+    padding: 10px;
+    border: 1px solid black;
+    box-shadow: 0px 3px 5px black;
+    animation: onWinning 3s;
+}
+.infoWinner p{
+    font-size: 25px;
+}
+.blue{color: blue;}
+.red{color: red;}
+
+.mainGame table{
+    background-color: black;
+}
+.mainGame th{
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    font-size: 80px;
+    padding: 0px;
+    margin: 3px;
+}
+
+@keyframes onWinning {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
