@@ -54,7 +54,7 @@ export default function Game({ primary, game }) {
             <tr key={key0 + "colum"}>
               {values.map((value, key) => (
                 <th key={key0 + "" + key + "case"}>
-                  {value === "." ? <></> : <>{value}</>}
+                  {value === "." ? <></> : value}
                 </th>
               ))}
             </tr>

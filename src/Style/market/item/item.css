@@ -1,0 +1,15 @@
+.itemMarket{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+.itemMarket h5{
+    margin: 2px 0px 2px 0px;
+}
+.actual{
+    border-color: red;
+}

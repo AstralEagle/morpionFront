@@ -2,7 +2,7 @@
 
 
 //Function request besoin d'attribut
-// (URL,Header,CallBack,ErrorBack)
+// Request(URL,Header,CallBack,ErrorBack)
 export default function Request(url,header,callBack,errorBack){
     fetch(process.env.REACT_APP_API_URL+"/api/"+url,header)
     .then(res => res.json())

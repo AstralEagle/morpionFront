@@ -25,12 +25,25 @@
     background-color: black;
 }
 .mainGame th{
+    max-height: 100px;
+    max-width: 100px;
     height: 100px;
     width: 100px;
     background-color: white;
     font-size: 80px;
     padding: 0px;
     margin: 3px;
+}
+.mainGame .caseDiv{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainGame img{
+    height: 80%;
+    width: 80%;
 }
 
 @keyframes onWinning {

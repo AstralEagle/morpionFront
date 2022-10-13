@@ -7,6 +7,7 @@ import CreateRoom from "./Game/Create";
 import Game from "./Game/Game";
 import Score from "./Score/Index";
 import Menu from "./Header/Index";
+import Market from "./Market/Index"
 
 import Request from "../Request/request";
 import Header from "../Request/header";
@@ -35,6 +36,7 @@ export default function Router() {
           <Route exact path="/:id" element={<Game />} />
           <Route exact path="/score" element={<Score />} />
           <Route default path="*" element={<Index />} />
+          <Route exact path="/market" element={<Market />} />
         </Routes>
       </div>
     );

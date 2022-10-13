@@ -14,7 +14,7 @@ export default function Game() {
   const urlId = useParams().id;
 
   const [plato, setPlato] = useState(getNewPlato());
-  const [users, setUser] = useState([{ name: "" }, { name: "" }]);
+  const [tabUsers, setUser] = useState([{ id: 0,team: 0,name: "", sign: 1}, {id: 0,team: 1,name: "", sign: 1}]);
   const [turn, setTurn] = useState(0);
   const [end, setEnd] = useState(0);
   const [gameName,setName] = useState('')
@@ -22,13 +22,14 @@ export default function Game() {
   const requestBack = (res) => {
     console.log(res);
     setPlato(res.plato);
-    setUser(res.users);
     setTurn(res.turn);
     setEnd(res.end);
     setName(res.name);
-    console.log(users);
+    setUser(res.users);
+    console.log("users :",tabUsers)
   };
 
+  //Recuperation de toute les donné du jeu
   useEffect(() => {
     Request(`game/${urlId}`, Header.loged("GET"), requestBack, (err) => {
       window.location = "/";
@@ -49,8 +50,27 @@ export default function Game() {
       setPlato(plato);
       setEnd(end);
     });
+    socket.on("PlayerJoin",() => {
+      console.log("Add PlayerJoin")
+      Request(`game/${urlId}`, Header.loged("GET"), (data) => {
+        setUser(data.users);
+      })
+    })
+
   }, []);
 
+//fonction qui transform l'id du sign en url vers l'img du sign
+  function getUrlSign (val){
+    let r = process.env.REACT_APP_API_URL+"/sign/circle/"
+    if(val === "0"){
+      r = process.env.REACT_APP_API_URL+"/sign/crosse/"
+    }
+    r+=tabUsers[val].sign+".png"
+    
+    return r;
+  }
+
+  // Fonction qui permet de placer un coup
   const playInput = (pos) => {
     console.log(pos);
 
@@ -65,15 +85,16 @@ export default function Game() {
   return (
     <div className="gameMainDiv">
       <div>
-        <Menu users={users} turn={turn} gameName={gameName} />
+        <Menu users={tabUsers} turn={turn} gameName={gameName} />
       </div>
       <div className="mainGame">
         {end === 1 && (
           <div className="infoWinner">
-            <p><span className={turn === 0 ? "blue":"red"}>{users[turn].name}</span> a gagné cette partie!</p>
+            <p><span className={turn === 0 ? "blue":"red"}>{tabUsers[turn].name}</span> a gagné cette partie!</p>
           </div>
         )}
         <table>
+          {/* Affichage du morpion*/}
           <tbody>
             {plato.map((values, key0) => (
               <tr key={key0}>
@@ -81,7 +102,12 @@ export default function Game() {
                   <Case
                     key={key}
                     platoPosition={key0 + "" + key}
-                    expression={value}
+                    expression={
+                      value !== '.' ?
+                      getUrlSign(value)
+                      : 
+                      {value}
+                    }
                     callBack={playInput}
                   />
                 ))}
@@ -94,6 +120,7 @@ export default function Game() {
   );
 }
 
+// Tableau du morpion vide
 function getNewPlato() {
   let r = [];
   for (var i = 0; i < 3; i++) {
@@ -105,3 +132,5 @@ function getNewPlato() {
 
   return r;
 }
+
+

@@ -16,7 +16,7 @@ export default function Index({user}) {
         <a href="/">Morpion</a>
       </h1>
       <div>
-        <a href="/shop"><RiShoppingBagLine className="headerIcon" /></a>
+        <a href="/market"><RiShoppingBagLine className="headerIcon" /></a>
         <a href="/score"><RiVipCrownLine className="headerIcon" /></a>
         <a href={`/user/${user.id}`}><RiUser3Line className="headerIcon" /></a>
         <RiLogoutBoxRLine className="headerIcon" onClick={logOut}/>

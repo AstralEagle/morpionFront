@@ -9,10 +9,16 @@ export default function Info({ users, turn, gameName }) {
 
   console.log(infoTurn);
 
-  useEffect(() => {setInfo(users);}, [users]);
+  useEffect(() => {setInfo(users);
+  console.log(infoUsers)}, [users]);
   useEffect(() => {setTurn(turn);}, [turn])
   useEffect(() => {setName(gameName);}, [gameName])
 
+
+  const setClick = () => {
+    setInfo([...infoUsers,{test:"Test"}]);
+    console.log(infoUsers)
+  }
   return (
     <div className="mainInfoParti">
       <h2 className="nameParti">{gameName} </h2>
@@ -27,7 +33,7 @@ export default function Info({ users, turn, gameName }) {
             <div className="redCircle">O</div>
           )}
         </div>
-        <div className="player2">
+        <div className="player2" onClick={setClick}>
           <h3>{infoUsers[1].name}</h3>
         </div>
       </div>
